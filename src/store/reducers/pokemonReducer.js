@@ -15,7 +15,6 @@ const initialState = {
 }
 
 export default (state = initialState, {type, payload, next, previous}) => {
-  console.log(next, previous)
   switch (type) {
     case GET_POKEMON:
       return {
@@ -60,7 +59,6 @@ function sortByTag (state, payload) {
   const list = state.pokemonList.slice()
   let filter = list.filter(({types}) => {
     return types.some(({type}) => {
-      console.log(type.name, payload)
       return type.name === payload
     })
   })

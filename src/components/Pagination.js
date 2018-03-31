@@ -16,7 +16,6 @@ class Pagination extends React.Component {
   }
 
   componentWillUpdate ({pokemon: {next}}, nextState) {
-    console.log(this.props.pokemon.next, next)
     if (this.props.pokemon.next !== next) {
       this.setState(({loading}) => {
         return {loading: !loading}

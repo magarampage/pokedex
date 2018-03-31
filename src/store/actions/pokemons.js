@@ -6,7 +6,6 @@ export const getPokemon = () => {
     try {
       const {data} = await axios.get(
         'https://pokeapi.co/api/v2/pokemon/?limit=10')
-      console.log(data)
       const pokemonList = await Promise.all(
         data.results.map(async (elem) => {
           let {data: newData} = await axios.get(elem.url)
@@ -46,7 +45,6 @@ export const handlePagination = (url) => {
   return async (dispatch) => {
     try {
       const {data} = await axios.get(url)
-      console.log(data)
       const pokemonList = await Promise.all(
         data.results.map(async (elem) => {
           let {data: newData} = await axios.get(elem.url)

@@ -2,13 +2,10 @@ import axios from 'axios/index'
 import { GET_TYPE, GET_TYPES, RESET_TYPES } from './actionTypes'
 
 export const getTypes = () => {
-  return async (dispatch, getState) => {
+  return async (dispatch) => {
     try {
-      const state = await getState()
       const {data} = await axios.get(
         `https://pokeapi.co/api/v2/type`)
-      console.log(state)
-      console.log(data.results)
       dispatch({
         type: GET_TYPES,
         payload: data.results
