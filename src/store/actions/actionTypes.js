@@ -1,0 +1,6 @@
+export const GET_POKEMON = 'GET_POKEMON'
+export const FIND_POKEMON = 'FIND_POKEMON'
+export const GET_TYPES = 'GET_TYPES'
+export const GET_TYPE = 'GET_TYPE'
+export const RESET_TYPES = 'RESET_TYPES'
+export const HANDLE_PAGINATION = 'HANDLE_PAGINATION'
