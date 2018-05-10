@@ -3,7 +3,7 @@ import React from 'react'
 const Header = (props) => {
   return (
     <header>
-      <h1>pokedex</h1>
+      <h1>pokedex<span>11.05.2018</span></h1>
     </header>
   )
 }
