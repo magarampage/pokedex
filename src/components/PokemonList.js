@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Pagination from './Pagination'
 import SinglePokemon from './SinglePokemon'
-
-const connect = require('react-redux').connect
+import {connect} from 'react-redux'
 
 class PokemonList extends React.Component {
   state = {

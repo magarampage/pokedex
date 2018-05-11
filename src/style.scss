@@ -24,11 +24,7 @@ li {
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	header {
-		background-color: grey;
-		color: white;
-		padding: 3%;
-	}
+	
 	.pokemon-list {
 		.attention {
 			font-size: 20px;
