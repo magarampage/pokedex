@@ -7,6 +7,12 @@ import PokemonList from './components/PokemonList'
 import SearchBar from './components/SearchBar'
 import Tags from './components/Tags'
 import * as actions from './store/actions'
+import {ThemeProvider} from 'styled-components'
+
+const theme = {
+  primary: 'white',
+  blue: 'blue'
+}
 
 class App extends Component {
   state = {
@@ -29,15 +35,17 @@ class App extends Component {
 
   render () {
     return (
-      <div className="container">
-        <Header/>
-        <SearchBar
-          handleChange={this.handleName}
-          findPokemon={this.findPokemon}/>
-        <Tags getType={this.props.getType}/>
-        <PokemonList/>
-        <Footer/>
-      </div>
+      <ThemeProvider theme={theme}>
+        <div className="container">
+          <Header/>
+          <SearchBar
+            handleChange={this.handleName}
+            findPokemon={this.findPokemon}/>
+          <Tags getType={this.props.getType}/>
+          <PokemonList/>
+          <Footer/>
+        </div>
+      </ThemeProvider>
     )
   }
 }
