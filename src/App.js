@@ -15,6 +15,12 @@ const theme = {
 }
 
 class App extends Component {
+  static propTypes = {
+    getPokemon: PropTypes.func,
+    getTypes: PropTypes.func,
+    getType: PropTypes.func,
+    findPokemon: PropTypes.func
+  }
   state = {
     pokemonName: ''
   }
@@ -34,6 +40,8 @@ class App extends Component {
   }
 
   render () {
+    
+    console.log('hello');
     return (
       <ThemeProvider theme={theme}>
         <div className="container">
@@ -48,13 +56,6 @@ class App extends Component {
       </ThemeProvider>
     )
   }
-}
-
-App.propTypes = {
-  getPokemon: PropTypes.func,
-  getTypes: PropTypes.func,
-  getType: PropTypes.func,
-  findPokemon: PropTypes.func
 }
 
 function mapStateToProps ({pokemon}, ownProps) {

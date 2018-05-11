@@ -1,12 +1,32 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
+const VENDOR_LIBS = [ 'axios', 'babel-polyfill', 'prop-types', 'react', 'react-dom', 'react-redux', 'redux', 'redux-thunk', 'styled-components'
+]
 
 module.exports = {
-  entry: ['babel-polyfill', './src/index.js'],
+  entry: {
+    bundle: ['babel-polyfill', './src/index.js'],
+    vendor: VENDOR_LIBS
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: '[name].[hash].js',
+    chunkFilename: '[name].js'
+  },
+  devtool: 'inline-source-map',
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
+          enforce: true,
+          chunks: 'all'
+        }
+      }
+    }
   },
   module: {
     rules: [
@@ -32,4 +52,4 @@ module.exports = {
       template: './public/index.html'
     })
   ]
-};
+}
